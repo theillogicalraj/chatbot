@@ -1,0 +1,170 @@
+/* Base styles */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f2f2f2;
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s ease;
+}
+
+.container {
+  max-width: 420px;
+  margin: 50px auto;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  height: 80vh;
+}
+
+/* Dark mode */
+body.dark-mode {
+  background-color: #121212;
+}
+
+body.dark-mode .container {
+  background-color: #1f1f1f;
+  color: #f5f5f5;
+}
+
+/* Header */
+.header {
+  background-color: #4a90e2;
+  color: white;
+  padding: 16px;
+  font-size: 20px;
+  text-align: center;
+}
+
+body.dark-mode .header {
+  background-color: #333;
+}
+
+/* Chat area */
+#chatDisplay {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  background: inherit;
+}
+
+/* Message Bubbles */
+.message-wrapper {
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.message-wrapper.user {
+  align-items: flex-end;
+}
+
+.message-wrapper.bot {
+  align-items: flex-start;
+}
+
+.message-bubble {
+  max-width: 80%;
+  padding: 10px 14px;
+  border-radius: 14px;
+  font-size: 14px;
+  position: relative;
+  background-color: #e0e0e0;
+  color: #000;
+  word-wrap: break-word;
+}
+
+.message-wrapper.bot .message-bubble {
+  background-color: #d2e3fc;
+}
+
+body.dark-mode .message-bubble {
+  background-color: #333;
+  color: #f1f1f1;
+}
+
+body.dark-mode .message-wrapper.bot .message-bubble {
+  background-color: #2c3e50;
+}
+
+/* Timestamp */
+.time {
+  font-size: 10px;
+  margin-top: 4px;
+  opacity: 0.6;
+}
+
+/* Input area */
+.input-area {
+  display: flex;
+  border-top: 1px solid #ccc;
+  padding: 10px;
+  background-color: #fafafa;
+}
+
+body.dark-mode .input-area {
+  background-color: #2a2a2a;
+  border-top: 1px solid #444;
+}
+
+#userInput {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+}
+
+#sendButton,
+#micButton,
+#toggle-mode {
+  margin-left: 10px;
+  padding: 10px;
+  border: none;
+  background-color: #4a90e2;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#sendButton:hover,
+#micButton:hover,
+#toggle-mode:hover {
+  background-color: #357bd8;
+}
+
+/* Dark mode buttons */
+body.dark-mode #sendButton,
+body.dark-mode #micButton,
+body.dark-mode #toggle-mode {
+  background-color: #555;
+  color: #f5f5f5;
+}
+
+body.dark-mode #sendButton:hover,
+body.dark-mode #micButton:hover,
+body.dark-mode #toggle-mode:hover {
+  background-color: #777;
+}
+
+/* Typing dots animation */
+#typing .message-bubble em {
+  font-style: normal;
+  font-weight: bold;
+}
+
+.dots::after {
+  content: '';
+  display: inline-block;
+  animation: blink 1s infinite steps(1, end);
+}
+
+@keyframes blink {
+  0% { content: '.'; }
+  33% { content: '..'; }
+  66% { content: '...'; }
+  100% { content: ''; }
+}
